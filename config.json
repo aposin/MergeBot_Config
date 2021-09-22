@@ -1,0 +1,14 @@
+{	"PORT" : "FILL IN THE SAME PORT AS THE WEBHOOK",
+	"LOG_NAME" : "/.../.../logs/Name_OF_YOUR_LOG",
+	"API_URL" : "https://github.aeat.allianz.at/api/v3/",
+  	"ABSOLUTE_PATH_CONFIGURATION_FILES" : "/.../.../",
+	"PATH_GROOVY_SCRIPT_PRE" : "/.../.../PreCommit.groovy",
+	"PATH_GROOVY_SCRIPT_POST" : "/.../.../PostCommit.groovy",
+	"PATH_GROOVY_CONFIGURATION" : "/.../.../Configuration.groovy",
+	"PATH_MERGE_TRIGGERS" :"/.../.../MergeTriggerRules.json",
+	"PATH_STATUS_CHECK_MESSAGES" :"/.../.../StatusChecksMessages.json",
+ 	"PATH_MERGE_CONFLICT_INSTRUCTIONS" : "/.../.../mb_mergeconflictinstructions.deleteme.md",
+	"MANUAL" : "manual",
+	"NO_PORTING" : "no-porting",
+	"RERUN_CHECK" : "rerun-check"
+}

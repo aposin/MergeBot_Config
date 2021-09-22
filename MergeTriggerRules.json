@@ -1,0 +1,4 @@
+{
+	"branch_A" : "branch_B",
+	"branch_B" : "main"
+}

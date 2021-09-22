@@ -1,0 +1,12 @@
+{
+	"#001" : {
+	"VALIDATION_HEAD" : "<Header of Status Check>",
+	"VALIDATION_DETAIL" : "<Description of failure>"
+	},
+
+	"#002" : {
+	"VALIDATION_HEAD" : "",
+	"VALIDATION_DETAIL" : ""
+	},
+}
+
