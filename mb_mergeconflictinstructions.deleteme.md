@@ -3,7 +3,6 @@
 **The automatic cherry picking didn't work out, please do it manually.**  
 First of all don't panic. 
 In the following lines all the necessary steps are explained.
-- [Tips & Tricks on Confluence (see section 5. Fixing Merge Conflicts)](https://docs.aeat.allianz.at/x/tKBEAg)  
 
 For additional information what you are going to do, check out:  
 - [Git Documentation - Cherry Pick](https://git-scm.com/docs/git-cherry-pick)  
