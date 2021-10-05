@@ -1,7 +1,6 @@
 package org.opin.mergebot
 
 import groovy.json.JsonSlurper
-
 @Grapes(
     @Grab(group='org.codehaus.groovy', module='groovy-json', version='3.0.9')
 )
