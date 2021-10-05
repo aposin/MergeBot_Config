@@ -19,9 +19,6 @@ import org.apache.directory.api.ldap.model.entry.Entry
 import org.apache.directory.ldap.client.api.LdapConnection
 import org.apache.directory.ldap.client.api.LdapNetworkConnection
 
-@Field def configuration = new GroovyScriptEngine('.').with{loadScriptByName(args[1])}
-	this.metaClass.mixin configuration
-
 @Field Logger logger =Logger.getLogger("PreCommit.class");
 String path=args[0]
 def input = new JsonSlurper().parse(new File(path), "UTF-8")
