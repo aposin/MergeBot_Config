@@ -1,25 +1,7 @@
 package org.opin.mergebot
 
 import groovy.json.JsonSlurper
-import groovy.transform.Field
 
-import java.nio.ByteBuffer
-import java.nio.charset.CharacterCodingException
-import java.nio.charset.Charset
-import java.nio.charset.CharsetDecoder
-import java.nio.charset.StandardCharsets
-import java.security.Key
-import java.util.logging.Logger
-
-import javax.crypto.Cipher
-import javax.crypto.spec.SecretKeySpec
-
-import org.apache.directory.api.ldap.model.entry.DefaultAttribute
-import org.apache.directory.api.ldap.model.entry.Entry
-import org.apache.directory.ldap.client.api.LdapConnection
-import org.apache.directory.ldap.client.api.LdapNetworkConnection
-
-@Field Logger logger =Logger.getLogger("PreCommit.class");
 String path=args[0]
 def input = new JsonSlurper().parse(new File(path), "UTF-8")
 
@@ -36,6 +18,8 @@ String process(def input){
 			//Example implementation of a Status Check // do not forget to add the ErrorCode #001 in file: StatusCheckMessages.json: VALIDATION_HEAD/VALIDATION_DETAIL will be used as Status Check title and description.
 			if(fileName.startsWith(" ")){
 				result = result + "#001\n"
+			} else {
+				result = result + "SUCCESSFUL"
 			}
 			/*
 			if(add further validations if oyu need them.){
@@ -55,18 +39,4 @@ String process(def input){
 		println e.getMessage() + "\n" + e.getStackTrace()
 	}
 	return result
-}
-
-private boolean isUTF8Encoded(File file) {
-	byte[] binaryContent = file.bytes
-	CharsetDecoder decoder =
-			StandardCharsets.UTF_8.newDecoder();
-	try {
-		decoder.decode(
-				ByteBuffer.wrap(binaryContent));
-	} catch (CharacterCodingException ex) {
-		println "no utf"
-		return false
-	}
-	return true
 }
