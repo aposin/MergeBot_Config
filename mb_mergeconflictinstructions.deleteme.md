@@ -8,7 +8,6 @@ For additional information what you are going to do, check out:
 - [Git Documentation - Cherry Pick](https://git-scm.com/docs/git-cherry-pick)  
 - [Atlassin Git Cherry Pick](https://www.atlassian.com/git/tutorials/cherry-pick)  
 
-
 Structure of feature branch name that is created by the MergeBot
 **_tmpFromBranchErrorName_**  
 

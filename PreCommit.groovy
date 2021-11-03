@@ -1,9 +1,6 @@
 package org.opin.mergebot
 
 import groovy.json.JsonSlurper
-@Grapes(
-    @Grab(group='org.codehaus.groovy', module='groovy-json', version='3.0.9')
-)
 
 String path=args[0]
 def input = new JsonSlurper().parse(new File(path), "UTF-8")
@@ -25,11 +22,14 @@ String process(def input){
 				result = result + "SUCCESSFUL"
 			}
 			/*
-			if(add further validations if oyu need them.){
+			if(add further validations if you need them.){
 				
 				result=result + "#002\n"
 			} 
-			.
+			Sample implementation of maintainer concept:
+			if (if(!input.maintainerFilePath.equals("NO_MAINTAINER_FILE") && (!input.reviewerList.isEmpty() || !input.reviewSubmitterList.isEmpty()) && !isReviewerMaintainer(input.reviewerList, input.reviewSubmitterList, input.maintainerFilePath)){
+				result = result + "002\n"
+			}
 			.
 			.
 			*/	
@@ -43,3 +43,13 @@ String process(def input){
 	}
 	return result
 }
+
+/* Example for using maintainers
+private isReviewerMaintainer(List<String> reviewerList, List<String> reviewSubmitterList, String path) {
+	def maintainer = new JsonSlurper().parse(new File(path), "UTF-8")
+				List<String> maintainerList = maintainer.maintainer;
+				reviewerListLowerCase = reviewerList.collect{it.toLowerCase()}
+				reviewSubmitterListLowerCase = reviewSubmitterList.collect{it.toLowerCase()}
+				reviewerListLowerCase.addAll(reviewSubmitterListLowerCase)
+				return maintainerList.containsAll(reviewerListLowerCase)|| maintainerList.intersect(reviewSubmitterListLowerCase).size()>=1
+} */

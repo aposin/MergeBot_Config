@@ -2,18 +2,14 @@ package org.opin.mergebot
 
 import groovy.json.JsonSlurper
 
-@Grapes(
-    @Grab(group='org.codehaus.groovy', module='groovy-json', version='3.0.9')
-)
-
 String path=args[0]
 def input = new JsonSlurper().parse(new File(path), "UTF-8")
 return process(input)
 
 
 int process(def input){
-	int result=0
 	def baseUrl
+	int result=0
 	try{
 		if(!input.reviewerList.isEmpty()){
 			String reviewer = input.reviewerList.get(0)
