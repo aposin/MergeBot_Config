@@ -15,6 +15,7 @@ String process(def input){
 		input.filesToMerge.each {file ->
 			String fileName = file.fileName.toLowerCase()
 			String plugin = file.pluginName
+			final string maintainerFilePath = "NO_MAINTAINER_FILE" // if the maintainer concept should be switched of use "NO_MAINTAINER_FILE" otherwise provide path to Maintainer.json
 			//Example implementation of a Status Check // do not forget to add the ErrorCode #001 in file: StatusCheckMessages.json: VALIDATION_HEAD/VALIDATION_DETAIL will be used as Status Check title and description.
 			if(fileName.startsWith(" ")){
 				result = result + "#001\n"
@@ -27,7 +28,9 @@ String process(def input){
 				result=result + "#002\n"
 			} 
 			Sample implementation of maintainer concept:
-			if (if(!input.maintainerFilePath.equals("NO_MAINTAINER_FILE") && (!input.reviewerList.isEmpty() || !input.reviewSubmitterList.isEmpty()) && !isReviewerMaintainer(input.reviewerList, input.reviewSubmitterList, input.maintainerFilePath)){
+			if(!maintainerFilePath.equals("NO_MAINTAINER_FILE") 
+			&& (!input.reviewerList.isEmpty() || !input.reviewSubmitterList.isEmpty()) 
+			&& !isReviewerMaintainer(input.reviewerList, input.reviewSubmitterList, maintainerFilePath)){
 				result = result + "002\n"
 			}
 			.
